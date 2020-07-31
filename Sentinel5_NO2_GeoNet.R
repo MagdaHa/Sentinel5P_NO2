@@ -13,7 +13,7 @@
 ## - 1.) Download Sentinel-5P NetCDF files for specific region and time period
 ## - 2.) Processing Sentinel-5P data
 ## - 2.1) Save NO2 concentrations per day as TIFF file (+ application of a cloud filter)
-## - 2.2) Moving Window: Save average values over a period of 5 days as TIFF
+## - 2.2) Rolling Window: Save average values over a period of 5 days as TIFF
 ## - 3.) Deleting the NetCDFs after successfully creating the TIFF files
 
 
@@ -74,7 +74,7 @@ set_aoi(aoi_data)
 #time_range <-  c("2020-04-06", "2020-04-08")                           # time range in the past, after 1.) move on to 2.1b.)
 time_range <-  c(as.character(Sys.Date()-1), as.character(Sys.Date()))  # date yesterday, after 1.) move on to 2.1a.)
 
-platform <- "Sentinel-5P"                                               # only images from Sentinel-5p are requested
+platform <- "Sentinel-5P"                                               # only images from Sentinel-5P are requested
 
 #--------------------------------------------------------------------------------------------------------------------------
 # Log in to the Copernicus Hub account
@@ -133,7 +133,7 @@ cat("Download successful on", as.character(Sys.time()), "\n", file = log_con)
 #--------------------------------------------------------------------------------------------------------------------------
 # 2.1a) Current recordings (from yesterday)
 #--------------------------------------------------------------------------------------------------------------------------
-# This paragraph must be executed if NetCDF files were downloaded with yesterday?s time stamp and need to be processed, otherwise continue with 2.1a)
+# This paragraph must be executed if NetCDF files were downloaded with yesterdays time stamp and need to be processed, otherwise continue with 2.1a)
 
 # Lists all downloaded images
 files_folder <- "C:\\Sentinel5\\raw\\datasets\\Sentinel-5P"		              # adjust manually
@@ -274,9 +274,9 @@ cat("NO2 raster successfully saved on", as.character(Sys.time()), "\n", file = l
 
 
 #--------------------------------------------------------------------------------------------------------------------------
-# 2.2) Moving Window
+# 2.2) Rolling Window
 #--------------------------------------------------------------------------------------------------------------------------
-# The Moving Window displays the average value of the measured NO2 concentrations over 5 consecutive days and stores them in a TIFF
+# The Rolling Window displays the average value of the measured NO2 concentrations over 5 consecutive days and stores them in a TIFF
 
 #--------------------------------------------------------------------------------------------------------------------------
 # List of all stored NO2 TIFFS
@@ -305,7 +305,7 @@ for (i in 5:length(date_list)){                                       # starts w
   mean <- stackApply(in_stack, indices =  rep(1,nlayers(in_stack)), fun = "mean", na.rm = T)# Calculation of the mean value
   plot(mean)                                                                                # Plot the new grid with the mean values
   name <- as.character(c(window_dates[1]))                                                  # Naming the layer after the fifth date
-  out_folder <- "C:\\data\\Sentinel5\\2020_moving_window_5\\"                               # Path where the average TIFFs are stored (Adjust manually)
+  out_folder <- "C:\\data\\Sentinel5\\2020_rolling_window_5\\"                               # Path where the average TIFFs are stored (Adjust manually)
   filename = paste0(out_folder, name, ".tif")
   if (file.exists(filename)){                                                               # Skip the file if it already exists
     next
@@ -317,8 +317,8 @@ for (i in 5:length(date_list)){                                       # starts w
 #-------------------------------------------------------------------------------------------------------------------------
 # add log file
 
-# successful creation and saving of the Moving Window layer of the respective date
-cat("Moving-Window raster successfully saved on", as.character(Sys.time()), "\n", "\n", file = log_con)
+# successful creation and saving of the Rolling Window layer of the respective date
+cat("Rolling Window raster successfully saved on", as.character(Sys.time()), "\n", "\n", file = log_con)
  
 
 ############################################################################################################################
