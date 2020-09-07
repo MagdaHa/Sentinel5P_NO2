@@ -155,11 +155,11 @@ aoi_buff <- gBuffer(aoi, width = 5000)                                          
 S5P_1 <- S5P_process(input = one_day)
 
 #-----------------------------------------------------------NO2---------------------------------------------------------
-# Merge all scenes of a day, retrieve a specific variable (product) and convert the unit to mol/cm2
+# Merge all scenes of a day, retrieve a specific variable (product) and convert the unit to molecules/cm2
 S5P_mask_unit <- S5P_process(input = one_day, my_res = 10000,              # resolution 10000m
                              product = 6, my_aoi = aoi_buff,               # product 6 = nitrogendioxide_tropospheric_column (troposphere mole content of NO2)
                              extent_only = FALSE,
-                             apply_scale_factor = T)                       # conversion of mol/m2 to mol/cm2
+                             apply_scale_factor = T)                       # conversion of mol/m2 to molecules/cm2
 
 
 #-------------------------------------------------------CLOUD FILTER----------------------------------------------------
@@ -223,11 +223,11 @@ writeRaster(S5P_NO2_final_mask, filename = paste0(out_folder, name, ".tif"), for
 #S5P_1 <- S5P_process(input = one_day)
 
 #-----------------------------------------------------------NO2---------------------------------------------------------
-# Merge all scenes of a day, retrieve a specific variable (product) and convert the unit to mol/cm2
+# Merge all scenes of a day, retrieve a specific variable (product) and convert the unit to molecules/cm2
 #S5P_mask_unit <- S5P_process(input = one_day, my_res = 10000,            # resolution 10000m
                              #product = 6, my_aoi = aoi_buff,             # product 6 = nitrogendioxide_tropospheric_column (troposphere mole content of NO2)
                              #extent_only = FALSE,
-                             #apply_scale_factor = T)                     # conversion of mol/m2 to mol/cm2
+                             #apply_scale_factor = T)                     # conversion of mol/m2 to molecules/cm2
 
 #-------------------------------------------------------CLOUD FILTER-------------------------------------------------------
 # Merge all scenes of a day, retrieve a specific variable (product)
