@@ -23,7 +23,7 @@ This script focuses on the technology used and not on the scientific interpretat
 * Averaging over a certain period bypasses NoData values and eliminates meteorological effects that occur selectively
   
   
-###### A detailed StoryMap of Esri Germany with illustrations and the Sentinel-5P image service can be found [here](https://storymaps.arcgis.com/stories/ffb2678bf09f466b9744d30c5fb902a2) (only in German).
+##### A detailed StoryMap of Esri Germany with illustrations and the Sentinel-5P image service can be found [here](https://storymaps.arcgis.com/stories/ffb2678bf09f466b9744d30c5fb902a2) (only in German).
 
 
 # ArcGIS Pro Toolbox
