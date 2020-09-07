@@ -16,8 +16,6 @@ Using the [S5Processor](https://github.com/MBalthasar/S5Processor) package, this
 
 ![R workflow](https://github.com/MagdaHa/Sentinel5P_NO2/blob/master/img/R_workflow.png)
 
-To make sure the R script runs without problems, the following packages must be installed in R: devtools, getSpatialData, raster, sf, sp, dismo, geosphere, rgeos, S5Processor, ncdf4, ggplot2, maptools, rgdal, lubridate, cat. 
-
 ### How are the result layers supposed to be interpreted?
 This script focuses on the technology used and not on the scientific interpretation of the results. Nevertheless:
   • Values provide information about NO2 concentrations in the troposphere (up to 15 km above the earth's surface), but not at a specific location near the ground (e.g. a busy         road)
@@ -30,5 +28,6 @@ This script focuses on the technology used and not on the scientific interpretat
 
 # ArcGIS Pro Toolbox
 The toolbox integrate the steps of this workflow using R Bridge and native arcpy. The toolbox does not do the data aggregation but relies on the ArcGIS Pro capabilities of flexible aggregation (for days, weeks, months, …) through the Multidimensional Toolset in ArcGIS Pro.
+
 For the toolbox, a working version of the R-bridge needs to be available.
 
