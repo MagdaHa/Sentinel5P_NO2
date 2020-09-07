@@ -1,7 +1,11 @@
 # Sentinel5P_NO2
 ## Sentinel-5P: Processing and handling NO2 measured values in R
 
-Sentinel-5P is a satellite that is operating within ESA's Copernicus program since 2017. The goal of the mission is a very dense scheduled operational monitoring of the atmosphere. Using the TROPOMI instrument on board, various parameters are measured, such as tropospheric pollutants, greenhouse gases, aerosols, and cloud cover. NO2 concentrations are also provided as a separate product, which can be downloaded as NetCDF. More information about this product can be found in the [ESA user manual](https://sentinel.esa.int/documents/247904/2474726/Sentinel-5P-Level-2-Product-User-Manual-Nitrogen-Dioxide).
+Sentinel-5P is a satellite that is operating within ESA's Copernicus program since 2017. The goal of the mission is a very dense scheduled operational monitoring of the atmosphere. Using the TROPOMI instrument on board, various parameters are measured, such as tropospheric pollutants, greenhouse gases, aerosols, and cloud cover. NO2 concentrations are also provided as a separate product, which can be downloaded as NetCDF.
+
+![S5P product](https://github.com/MagdaHa/Sentinel5P_NO2/blob/master/img/S5P_product.png)
+
+More information about this product can be found in the [ESA user manual](https://sentinel.esa.int/documents/247904/2474726/Sentinel-5P-Level-2-Product-User-Manual-Nitrogen-Dioxide).
 
 ### R script
 With the help of the R package [GetSpatialData](https://github.com/16EAGLE/getSpatialData) various satellite data available on the Copernicus Open Access Hub can be downloaded automatically. Conditions like recording period, satellite, product type and area of interest can be defined. NO2 data is stored in the Sentinel-5P product type L2__NO2___, therefore only this data is of interest and should be downloaded for the desired period.
