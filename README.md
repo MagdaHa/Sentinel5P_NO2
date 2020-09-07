@@ -7,7 +7,7 @@ Sentinel-5P is a satellite that is operating within ESA's Copernicus program sin
 With the help of the R package [GetSpatialData](https://github.com/16EAGLE/getSpatialData) various satellite data available on the Copernicus Open Access Hub can be downloaded automatically. Conditions like recording period, satellite, product type and area of interest can be defined. NO2 data is stored in the Sentinel-5P product type L2__NO2___, therefore only this data is of interest and should be downloaded for the desired period.
 The subsequently downloaded NetCDF files contain several variables, such as longitude and latitude, different viewing angels and various nitrogen dioxide related variables. Product variable 6 (nitrogendioxide_tropospheric_column) displays the NO2 concentration in the troposphere, which is used for the following analysis. Using the [S5Processor](https://github.com/MBalthasar/S5Processor) package, this variable can be queried and saved as GeoTiff. In addition, cloud masking is applied to prevent outliers. Product variable qa_value indicates the error probability of the measured values (e.g. due to cloud cover or snow). By blending the two variables and the resulting elimination of errors (qa_value < 0.5 or 0.75 = NoData) a corrected nitrogen dioxide layer is obtained (unit molecules/cm²).
 
-[R workflow](https://github.com/MagdaHa/Sentinel5P_NO2/blob/master/img/R_workflow.png)
+![R workflow](https://github.com/MagdaHa/Sentinel5P_NO2/blob/master/img/R_workflow.png)
 
 To make sure the R script runs without problems, the following packages must be installed in R: devtools, getSpatialData, raster, sf, sp, dismo, geosphere, rgeos, S5Processor, ncdf4, ggplot2, maptools, rgdal, lubridate, cat. 
 
