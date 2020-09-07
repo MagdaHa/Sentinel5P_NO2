@@ -171,7 +171,7 @@ S5P_mask_unit_cloud <- S5P_process(input = one_day, my_res = 10000,
 #-----------------------------------------------------EXTRACT CLOUDS--------------------------------------------------
 # Remove cloud cover from scene
 S5P_NO2_final <- S5P_mask_unit
-S5P_NO2_final[S5P_mask_unit_cloud < 0.5] <- -999                          # -999 as NoData value
+S5P_NO2_final[S5P_mask_unit_cloud < 0.5] <- -999                          # -999 as NoData value  ; 0.5 or 0.75 are threshold values for cloud filtering (further details in the S5P User Manual)
 #plot(S5P_NO2_final)                                                      # plot the scene with cloud filter
 
 #-------------------------------------------------------------------------------------------------------------------------
@@ -242,7 +242,6 @@ writeRaster(S5P_NO2_final_mask, filename = paste0(out_folder, name, ".tif"), for
 #plot(S5P_NO2_final)                                                      # plot the scene with cloud filter
 
 #-------------------------------------------------------------------------------------------------------------------------
-# Zuschneiden des Layers auf die Fl?che der AOI (L?ndergrenzen)
 # Crop the layer to the area of the AOI 
 #aoi_clip <- spTransform(aoi, CRS("+proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0,0,0"))  # Assign a new coordinate system
 
@@ -261,7 +260,7 @@ writeRaster(S5P_NO2_final_mask, filename = paste0(out_folder, name, ".tif"), for
 # Naming is adjusted to the respective date (directly from filename)
 #name <- substr(files_past[1], 100, 107)                                  # 100 and 107 results from position in path -> adjustment necessary to extract date from path
 
-# Raster als TIFF speichern
+# save raster as TIFF
 #writeRaster(S5P_NO2_final_mask, filename = paste0(out_folder, name, ".tif"), format="GTiff",overwrite=T)
 
 
