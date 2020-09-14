@@ -29,5 +29,5 @@ A detailed StoryMap of Esri Germany with illustrations and the Sentinel-5P image
 ## ArcGIS Pro Toolbox
 The toolbox integrate the steps of this workflow using R Bridge and native arcpy. The toolbox does not do the data aggregation but relies on the ArcGIS Pro capabilities of flexible aggregation (for days, weeks, months, …) through the Multidimensional Toolset in ArcGIS Pro.
 
-For the toolbox, a working version of the R-bridge needs to be available.
+For the toolbox, a working version of the [R-bridge](https://github.com/R-ArcGIS/r-bridge-install) needs to be installed.
 
