@@ -133,7 +133,7 @@ cat("Download successful on", as.character(Sys.time()), "\n", file = log_con)
 #--------------------------------------------------------------------------------------------------------------------------
 # 2.1a) Current recordings (from yesterday)
 #--------------------------------------------------------------------------------------------------------------------------
-# This paragraph must be executed if NetCDF files were downloaded with yesterdays time stamp and need to be processed, otherwise continue with 2.1a)
+# This paragraph must be executed if NetCDF files were downloaded with yesterdays time stamp and need to be processed, otherwise continue with 2.1b)
 
 # Lists all downloaded images
 files_folder <- "C:\\Sentinel5\\raw\\datasets\\Sentinel-5P"		              # adjust manually
